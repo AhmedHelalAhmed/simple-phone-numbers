@@ -14,6 +14,7 @@
 <body>
 <section class="container-fluid">
     <h2>Phone Numbers</h2>
+    @include('partial.errors')
     <form class="inline-block" method="get" action="{{ route('phone-numbers.index') }}" id="filter_form">
         <div class="row mt-3">
             <div class="col-md-6">

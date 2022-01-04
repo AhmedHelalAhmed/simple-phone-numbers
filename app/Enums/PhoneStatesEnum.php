@@ -41,4 +41,10 @@ class PhoneStatesEnum
 
         return self::INVALID_TEXT;
     }
+
+
+    public static function getAllowedValues(): array
+    {
+        return array_keys(PhoneStatesEnum::ALLOWED_OPTIONS);
+    }
 }
