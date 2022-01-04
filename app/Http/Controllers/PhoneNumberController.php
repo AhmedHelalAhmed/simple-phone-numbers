@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Events\VisitorHitThePage;
 use App\Http\Requests\PhoneNumberRequest;
 use App\Services\IndexingPhoneNumberService;
 use Illuminate\Contracts\Foundation\Application;
@@ -25,6 +26,8 @@ class PhoneNumberController extends Controller
         IndexingPhoneNumberService $indexingPhoneNumberService,
         PhoneNumberRequest $phoneNumberRequest
     ) {
+        event(new VisitorHitThePage);
+
         return view('phoneNumbers.index', $indexingPhoneNumberService->execute($phoneNumberRequest->validated()));
     }
 }
