@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Enums\PhoneStatesEnum;
+use App\Filters\CountryFilter;
 use App\Models\Customer;
 
 /**
@@ -43,9 +44,13 @@ class IndexingPhoneNumberService
     /**
      * @return mixed
      */
-    public function execute(): array
+    public function execute(array $filters): array
     {
         $phoneNumbers = $this->customers
+            ->filter(
+                $this->getFilters(),
+                $filters
+            )
             ->simplePaginate()
             ->through(function ($customer) {
                 [
@@ -65,5 +70,15 @@ class IndexingPhoneNumberService
         $countries = $this->gettingCountriesService->execute();
         $states = PhoneStatesEnum::ALLOWED_OPTIONS;
         return compact('phoneNumbers', 'countries', 'states');
+    }
+
+    /**
+     * @return CountryFilter[]
+     */
+    private function getFilters(): array
+    {
+        return [
+            'country_code' => new CountryFilter(),
+        ];
     }
 }

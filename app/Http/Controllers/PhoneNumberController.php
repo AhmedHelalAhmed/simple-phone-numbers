@@ -9,6 +9,11 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
+/**
+ * Class PhoneNumberController
+ * @package App\Http\Controllers
+ * @author Ahmed Helal Ahmed
+ */
 class PhoneNumberController extends Controller
 {
     /**
@@ -20,6 +25,6 @@ class PhoneNumberController extends Controller
         IndexingPhoneNumberService $indexingPhoneNumberService,
         PhoneNumberRequest $phoneNumberRequest
     ) {
-        return view('phoneNumbers.index', $indexingPhoneNumberService->execute());
+        return view('phoneNumbers.index', $indexingPhoneNumberService->execute($phoneNumberRequest->validated()));
     }
 }
