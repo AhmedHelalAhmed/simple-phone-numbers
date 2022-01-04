@@ -19,7 +19,7 @@ filter by country and state. Pagination is an extra.
 - Clone the project
 - Open terminal then do the following
 ```
-cp .env .env.example
+cp .env.example .env
 docker compose up
 docker-compose exec web /bin/bash
 # then do the following
