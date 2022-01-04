@@ -1,5 +1,6 @@
 <?php
 
+use App\GettingDetailsOfNumberService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $customer = \App\Models\Customer::first();
+    return (new GettingDetailsOfNumberService)->execute($customer->phone);
     return view('welcome');
 });
