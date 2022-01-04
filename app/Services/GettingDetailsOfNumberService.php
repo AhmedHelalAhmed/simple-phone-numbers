@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Services;
 
+use App\Enums\PhoneStatesEnum;
 use App\Models\Customer;
 
 /**
  * Class GettingDetailsOfNumberService
- * @package App
+ * @package App\Services
  * @author Ahmed Helal Ahmed
  */
 class GettingDetailsOfNumberService
@@ -24,7 +25,7 @@ class GettingDetailsOfNumberService
         foreach (Customer::COUNTRIES_REGEX as $regex) {
             $countryRegex = (new $regex);
             if ($countryRegex->isNumberHasTheSameCode($number)) {
-                $countryCode = $countryRegex->getCountryCode();
+                $countryCode = $countryRegex->getCountryCodeFormatted();
                 $numberIsValid = $countryRegex->isNumberValid($number);
                 $countryName = $countryRegex->getName();
             }

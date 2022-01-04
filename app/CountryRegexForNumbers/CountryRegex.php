@@ -34,7 +34,12 @@ abstract class CountryRegex implements CountryRegexInterface
 
     public function getCountryCode(): string
     {
-        return '+' . $this::code;
+        return $this::code;
+    }
+
+    public function getCountryCodeFormatted(): string
+    {
+        return '+' . $this->getCountryCode();
     }
 
     public function getName(): string

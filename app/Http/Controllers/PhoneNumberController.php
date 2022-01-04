@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 
-use App\GettingDetailsOfNumberService;
+use App\Services\IndexingPhoneNumberService;
 
 class PhoneNumberController extends Controller
 {
-    public function __invoke()
+    public function __invoke(IndexingPhoneNumberService $indexingPhoneNumberService)
     {
-        /*
-        $customer = \App\Models\Customer::first();
-        return (new GettingDetailsOfNumberService)->execute($customer->phone);
-        */
-        return view('phoneNumbers.index');
+        return view('phoneNumbers.index', $indexingPhoneNumberService->execute());
     }
 }

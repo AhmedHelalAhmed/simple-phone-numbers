@@ -13,7 +13,7 @@ class NumberHelper
      * @param string $number
      * @return array|string|string[]
      */
-    public static function getCodeFromNumber(string $number)
+    public static function getCodeFromNumber(string $number): string
     {
         [$code,] = explode(' ', $number);
 
