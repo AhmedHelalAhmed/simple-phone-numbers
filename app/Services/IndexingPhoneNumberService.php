@@ -14,6 +14,7 @@ use App\Models\Customer;
  */
 class IndexingPhoneNumberService
 {
+    const PAGINATION_SIZE = 5;
     /**
      * @var Customer
      */
@@ -52,7 +53,7 @@ class IndexingPhoneNumberService
                 $this->getFilters(),
                 $filters
             )
-            ->simplePaginate()
+            ->simplePaginate(self::PAGINATION_SIZE)
             ->through(function ($customer) {
                 [
                     'countryCode' => $countryCode,
