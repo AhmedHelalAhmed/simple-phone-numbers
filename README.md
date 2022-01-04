@@ -8,7 +8,7 @@ number.
 The page should render a list of all phone numbers available in the DB. It should be possible to
 filter by country and state. Pagination is an extra.
 
-## Tools and tech
+## Tools and technologies
 
 - Laravel PHP 8
 - Bootstrap 5
