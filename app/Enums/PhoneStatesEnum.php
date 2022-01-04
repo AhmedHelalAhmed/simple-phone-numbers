@@ -17,6 +17,8 @@ class PhoneStatesEnum
     const VALID_TEXT = 'OK';
     const INVALID_TEXT = 'NOK';
 
+    const CACHE_KEY = 'customersIdsThatHasInvalidPhoneNumber';
+
     const ALLOWED_OPTIONS = [
         self::INVALID_OR_VALID => 'All Numbers',
         self::INVALID => 'Invalid phone numbers',
@@ -46,5 +48,11 @@ class PhoneStatesEnum
     public static function getAllowedValues(): array
     {
         return array_keys(PhoneStatesEnum::ALLOWED_OPTIONS);
+    }
+
+
+    public static function getAllowedValuesForFilter(): array
+    {
+        return array_keys(PhoneStatesEnum::MAP_CLIENT_VALUES);
     }
 }

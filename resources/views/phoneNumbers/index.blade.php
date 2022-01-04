@@ -61,7 +61,7 @@
         </tbody>
     </table>
     <div class="text-center mt-3 mb-5">
-        {!! $phoneNumbers->links() !!}
+        {!! $phoneNumbers->appends(request()->input())->links() !!}
     </div>
 </section>
 

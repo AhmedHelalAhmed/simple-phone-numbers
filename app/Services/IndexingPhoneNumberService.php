@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Enums\PhoneStatesEnum;
 use App\Filters\CountryFilter;
+use App\Filters\StateFilter;
 use App\Models\Customer;
 
 /**
@@ -79,6 +80,7 @@ class IndexingPhoneNumberService
     {
         return [
             'country_code' => new CountryFilter(),
+            'state' => new StateFilter
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\PhoneStatesEnum;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Cache;
 
@@ -29,7 +30,7 @@ class CachingInvalidPhoneNumbersService
     public function execute()
     {
 
-        if (Cache::get('customersIdsThatHasInvalidPhoneNumber')) {
+        if (Cache::get(PhoneStatesEnum::CACHE_KEY)) {
             return;
         }
 
@@ -51,7 +52,7 @@ class CachingInvalidPhoneNumbersService
             });
 
 
-        Cache::put('customersIdsThatHasInvalidPhoneNumber', implode('_', $this->customersIdsThatHasInvalidNumbers),
+        Cache::put(PhoneStatesEnum::CACHE_KEY, implode('_', $this->customersIdsThatHasInvalidNumbers),
             3600);// cache for one hour let's say
     }
 }
