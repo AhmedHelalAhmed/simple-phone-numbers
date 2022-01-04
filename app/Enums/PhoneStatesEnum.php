@@ -9,9 +9,9 @@ namespace App\Enums;
  */
 class PhoneStatesEnum
 {
-    const INVALID = 0;
-    const VALID = 1;
-    const INVALID_OR_VALID = 2;
+    const INVALID_OR_VALID = 1;
+    const INVALID = 2;
+    const VALID = 3;
 
 
     const VALID_TEXT = 'OK';
