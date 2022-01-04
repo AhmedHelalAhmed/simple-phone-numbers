@@ -1,6 +1,6 @@
 <?php
 
-use App\GettingDetailsOfNumberService;
+use App\Http\Controllers\PhoneNumberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $customer = \App\Models\Customer::first();
-    return (new GettingDetailsOfNumberService)->execute($customer->phone);
-    return view('welcome');
+    return response()->redirectTo(route('phone-numbers.index'));
 });
+
+Route::get('/phone-numbers', [PhoneNumberController::class, '__invoke'])
+    ->name('phone-numbers.index');
