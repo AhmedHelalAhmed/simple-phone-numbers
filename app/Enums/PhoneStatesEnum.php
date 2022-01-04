@@ -23,6 +23,12 @@ class PhoneStatesEnum
         self::VALID => 'Valid phone numbers',
     ];
 
+
+    const MAP_CLIENT_VALUES = [
+        self::INVALID => false,
+        self::VALID => true
+    ];
+
     /**
      * @param bool $isValidNumber
      * @return string
